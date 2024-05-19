@@ -1,44 +1,37 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 const API_KEY = '9d949539a0495e3532b9b46c056e9707c75735a0'
 
 export function useEmojis () {
   const [emojis, setEmojis] = useState([])
-  const displayAll = useRef(true)
 
   const categories = [
     'smileys-emotion', 'people-body', 'animals-nature', 'food-drink',
     'travel-places', 'activities', 'objects', 'symbols', 'flags'
   ]
 
-  const getEmojisBySearch = async (query) => {
-    const res = await fetch(`https://emoji-api.com/emojis?search=${query}&access_key=${API_KEY}`)
+  const updateEmojis = async (url) => {
+    const res = await fetch(url)
     const data = await res.json()
-    setEmojis([])
-    displayAll.current = false
 
-    data?.forEach(emoji => {
+    data.forEach(emoji => {
       setEmojis(e => {
         const newEmojis = [...e]
         newEmojis.push(emoji.character)
         return newEmojis
       })
     })
+    return
+  }
+
+  const getEmojisBySearch = async (query) => {
+    setEmojis([])
+    updateEmojis(`https://emoji-api.com/emojis?search=${query}&access_key=${API_KEY}`)
   }
 
   const getEmojisByCategory = async (category) => {
-    const res = await fetch(`https://emoji-api.com/categories/${categories[category]}?access_key=${API_KEY}`)
-    const data = await res.json()
     setEmojis([])
-    displayAll.current = false
-
-    data?.forEach(emoji => {
-      setEmojis(e => {
-        const newEmojis = [...e]
-        newEmojis.push(emoji.character)
-        return newEmojis
-      })
-    })
+    updateEmojis(`https://emoji-api.com/categories/${categories[category]}?access_key=${API_KEY}`)
   }
 
   const displayAllEmojis = () => {
@@ -60,18 +53,7 @@ export function useEmojis () {
   }
   
   const loadEmojisByPage = async (page) => {
-    const res = await fetch(`https://emoji-api.com/categories/${categories[page]}?access_key=${API_KEY}`)
-    const data = await res.json()
-    
-    data?.forEach(emoji => {
-      setEmojis(e => {
-        const newEmojis = [...e]
-        newEmojis.push(emoji.character)
-        return newEmojis
-      })
-    })
-    console.log(categories[page]);
-    return
+    return await updateEmojis(`https://emoji-api.com/categories/${categories[page]}?access_key=${API_KEY}`)
   }
 
   useEffect(displayAllEmojis, [])

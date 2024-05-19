@@ -67,7 +67,7 @@ export function Filters ({ getEmojisBySearch, getEmojisByCategory, displayAllEmo
        key={index}
        name={category.name}
        img_url={`
-        src/assets/icons/categories/${category.img_url}
+        ./src/assets/icons/categories/${category.img_url}
         `}
       />
    ))
