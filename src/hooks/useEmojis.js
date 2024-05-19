@@ -28,12 +28,14 @@ export function useEmojis () {
     setEmojis([])
     updateEmojis(`https://emoji-api.com/emojis?search=${query}&access_key=${API_KEY}`)
   }
-
   const getEmojisByCategory = async (category) => {
     setEmojis([])
     updateEmojis(`https://emoji-api.com/categories/${categories[category]}?access_key=${API_KEY}`)
   }
-
+  const loadEmojisByPage = async (page) => {
+    return await updateEmojis(`https://emoji-api.com/categories/${categories[page]}?access_key=${API_KEY}`)
+  }
+  
   const displayAllEmojis = () => {
     let currentPage = 0
     let currentlyLoading = false
@@ -52,10 +54,6 @@ export function useEmojis () {
     }
   }
   
-  const loadEmojisByPage = async (page) => {
-    return await updateEmojis(`https://emoji-api.com/categories/${categories[page]}?access_key=${API_KEY}`)
-  }
-
   useEffect(displayAllEmojis, [])
 
   return { emojis, getEmojisBySearch, getEmojisByCategory, displayAllEmojis }

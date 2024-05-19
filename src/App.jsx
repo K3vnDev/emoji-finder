@@ -1,10 +1,11 @@
-import { EmojiCell } from './components/EmojiCell'
-import { Filters } from './components/Filters'
-import { useEmojis } from './hooks/useEmojis'
+import { EmojisGrid } from './components/EmojisGrid.jsx'
+import { Filters } from './components/Filters.jsx'
+import { useEmojis } from './hooks/useEmojis.js'
 
 function App() {
-  const { emojis, getEmojisBySearch, getEmojisByCategory, displayAllEmojis } = useEmojis()
-  // const [category, setCategory] = useState()
+  const { 
+    emojis, getEmojisBySearch, getEmojisByCategory, displayAllEmojis 
+  } = useEmojis()
 
   return (
     <>
@@ -16,15 +17,11 @@ function App() {
           getEmojisByCategory={getEmojisByCategory}
         />
       </header>
-      <main>
-        {
-          emojis.map((emoji, index) => (
-            <EmojiCell key={index}>
-              {emoji}
-            </EmojiCell>
-          ))
-        }
-      </main>
+      {
+        emojis.length > 0 &&
+        <EmojisGrid emojis={emojis} />
+        //TODO: Loading and show not found
+      }
     </>
   )
 }
