@@ -72,6 +72,40 @@ main{
   }
 }
 
+.copied-message{
+  color: white;
+  font-family: system-ui;
+  padding: 10px 22px;
+  border-radius: 5px;
+  background: #161692;
+  position: fixed;
+  font-size: 24px;
+  font-weight: 500;
+
+  bottom: 0;
+  left: 50%;
+  animation: copied-msg-appear 2s ease both;
+}
+
+.loading-circle{
+  /*Style*/
+}
+
+@keyframes copied-msg-appear{
+  0%{
+    opacity: 0;
+    transform: translate(-50%, 100%);
+  }
+  15%, 90%{
+    opacity: 1;
+    transform: translate(-50%, -25%);
+  }
+  100%{
+    opacity: 0;
+    transform: translate(-50%, 100%);
+  }
+}
+
 @media screen and (max-width: 1450px) {
   main{
     max-width: 45vw;

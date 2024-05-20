@@ -1,41 +1,41 @@
 /* eslint-disable react/prop-types */
-export function Categories({ getEmojisByCategory }) {
+export function Categories({ searchCategory }) {
   const categories = [
     {
       name: 'Emotions',
-      img_url: 'emotions.png',
+      file: 'emotions.svg'
     },
     {
       name: 'People & Body',
-      img_url: 'peoplenbody.png',
+      file: 'peoplenbody.svg',
     },
     {
       name: 'Animals & Nature',
-      img_url: 'animalsnnature.png',
+      file: 'animalsnnature.svg',
     },
     {
       name: 'Food & Drink',
-      img_url: 'foodndrinks.png',
+      file: 'foodndrinks.svg',
     },
     {
       name: 'Travel & Places',
-      img_url: 'travelnplaces.png',
+      file: 'travelnplaces.svg',
     },
     {
       name: 'Activities',
-      img_url: 'activities.png',
+      file: 'activities.svg',
     },
     {
       name: 'Objects',
-      img_url: 'objects.png',
+      file: 'objects.svg',
     },
     {
       name: 'Symbols',
-      img_url: 'symbols.png',
+      file: 'symbols.svg',
     },
     {
       name: 'Flags',
-      img_url: 'flags.png',
+      file: 'flags.svg',
     },
   ]
     
@@ -45,8 +45,8 @@ export function Categories({ getEmojisByCategory }) {
       categories.map((category, index) => (
         <Category
         key={index} name={category.name} index={index}
-        img_url={`./src/assets/icons/categories/${category.img_url}`}
-        getEmojisByCategory={getEmojisByCategory}
+        img_url={`public/categoriesIcons/${category.file}`}
+        searchCategory={searchCategory}
         />
       ))
     }
@@ -54,9 +54,9 @@ export function Categories({ getEmojisByCategory }) {
   )
 }
 
-function Category({ getEmojisByCategory, name, img_url, index }) {
+function Category({ searchCategory, name, img_url, index }) {
   const handleClick = () => {
-    getEmojisByCategory(index)
+    searchCategory(index)
   }
 
   return (
