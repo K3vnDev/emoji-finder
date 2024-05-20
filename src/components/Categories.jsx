@@ -1,67 +1,139 @@
 /* eslint-disable react/prop-types */
+
 export function Categories({ searchCategory }) {
   const categories = [
-    {
-      name: 'Emotions',
-      file: 'emotions.svg'
-    },
-    {
-      name: 'People & Body',
-      file: 'peoplenbody.svg',
-    },
-    {
-      name: 'Animals & Nature',
-      file: 'animalsnnature.svg',
-    },
-    {
-      name: 'Food & Drink',
-      file: 'foodndrinks.svg',
-    },
-    {
-      name: 'Travel & Places',
-      file: 'travelnplaces.svg',
-    },
-    {
-      name: 'Activities',
-      file: 'activities.svg',
-    },
-    {
-      name: 'Objects',
-      file: 'objects.svg',
-    },
-    {
-      name: 'Symbols',
-      file: 'symbols.svg',
-    },
-    {
-      name: 'Flags',
-      file: 'flags.svg',
-    },
+    'Emotions', 'People & Body', 'Animals & Nature',
+    'Food & Drink', 'Travel & Places', 'Activities', 
+    'Objects', 'Symbols', 'Flags',
   ]
-    
+
   return (
     <section className='categories-wrapper'>
-    {
-      categories.map((category, index) => (
+      {categories.map((category, index) => (
         <Category
-        key={index} name={category.name} index={index}
-        img_url={`/src/assets/categoriesIcons/${category.file}`}
-        searchCategory={searchCategory}
+          key={index}
+          index={index}
+          title={categories[index]}
+          searchCategory={searchCategory}
         />
-      ))
-    }
+      ))}
     </section>
   )
 }
 
-function Category({ searchCategory, name, img_url, index }) {
+function Category({ searchCategory, title, index }) {
   const handleClick = () => {
     searchCategory(index)
   }
-
   return (
-    <div className='category'>
-      <img src={img_url} alt={name} title={name} onClick={handleClick} />
+    <div className='category' onClick={handleClick}>
+      <CategoryIcon size={50} title={title} index={index} />
     </div>
   )
+}
+
+function CategoryIcon({ size, title, index }) {
+  const categoriesSvgs = [
+    <svg
+      xmlns='http://www.w3.org/2000/svg'
+      height={`${size}px`}
+      width={`${size}px`}
+      viewBox='0 -960 960 960'
+      fill='#e8eaed'
+      key={0}
+    >
+      <path d='M480-260q68 0 123.5-38.5T684-400H276q25 63 80.5 101.5T480-260ZM312-520l44-42 42 42 42-42-84-86-86 86 42 42Zm250 0 42-42 44 42 42-42-86-86-84 86 42 42ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-400Zm0 320q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Z' />
+      <title>{title}</title>
+    </svg>,
+    <svg
+      xmlns='http://www.w3.org/2000/svg'
+      height={`${size}px`}
+      width={`${size}px`}
+      viewBox='0 -960 960 960'
+      fill='#e8eaed'
+      key={1}
+    >
+      <path d='M40-160v-112q0-34 17.5-62.5T104-378q62-31 126-46.5T360-440q66 0 130 15.5T616-378q29 15 46.5 43.5T680-272v112H40Zm720 0v-120q0-44-24.5-84.5T666-434q51 6 96 20.5t84 35.5q36 20 55 44.5t19 53.5v120H760ZM360-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47Zm400-160q0 66-47 113t-113 47q-11 0-28-2.5t-28-5.5q27-32 41.5-71t14.5-81q0-42-14.5-81T544-792q14-5 28-6.5t28-1.5q66 0 113 47t47 113ZM120-240h480v-32q0-11-5.5-20T580-306q-54-27-109-40.5T360-360q-56 0-111 13.5T140-306q-9 5-14.5 14t-5.5 20v32Zm240-320q33 0 56.5-23.5T440-640q0-33-23.5-56.5T360-720q-33 0-56.5 23.5T280-640q0 33 23.5 56.5T360-560Zm0 320Zm0-400Z' />
+      <title>{title}</title>
+    </svg>,
+    <svg
+      xmlns='http://www.w3.org/2000/svg'
+      height={`${size}px`}
+      width={`${size}px`}
+      viewBox='0 -960 960 960'
+      fill='#e8eaed'
+      key={2}
+    >
+      <path d='M380-80q-75 0-127.5-52.5T200-260q0-35 17-64.5t63-75.5q6-6 11.5-12.5T306-430q-51-78-78.5-163.5T200-760q0-58 21-89t59-31q57 0 102 55t68 101q9 20 16.5 40.5T480-641q6-22 13.5-42.5T511-724q22-46 67-101t102-55q38 0 59 31t21 89q0 81-27.5 166.5T654-430q9 11 14.5 17.5T680-400q46 46 63 75.5t17 64.5q0 75-52.5 127.5T580-80q-45 0-72.5-10L480-100l-27.5 10Q425-80 380-80Zm0-80q23 0 46-5.5t43-16.5q-11-5-20-17t-9-21q0-8 11.5-14t28.5-6q17 0 28.5 6t11.5 14q0 9-9 21t-20 17q20 11 43 16.5t46 5.5q42 0 71-29t29-71q0-18-10-35t-30-34q-14-12-23-21t-29-34q-29-35-48-45.5T480-440q-41 0-60.5 10.5T372-384q-20 25-29 34t-23 21q-20 17-30 34t-10 35q0 42 29 71t71 29Zm40-130q-8 0-14-9t-6-21q0-12 6-21t14-9q8 0 14 9t6 21q0 12-6 21t-14 9Zm120 0q-8 0-14-9t-6-21q0-12 6-21t14-9q8 0 14 9t6 21q0 12-6 21t-14 9ZM363-489q11-8 25-14t31-11q-2-48-14.5-95.5T373-696q-19-40-42-67.5T285-799q-2 6-3.5 15.5T280-760q0 68 21.5 138T363-489Zm234 0q40-63 61.5-133T680-760q0-14-1.5-23.5T675-799q-23 8-46 35.5T587-696q-18 39-30.5 86.5T541-514q15 4 29 10.5t27 14.5Z' />
+      <title>{title}</title>
+    </svg>,
+    <svg
+      xmlns='http://www.w3.org/2000/svg'
+      height={`${size}px`}
+      width={`${size}px`}
+      viewBox='0 -960 960 960'
+      fill='#e8eaed'
+      key={3}
+    >
+      <path d='M533-440q-32-45-84.5-62.5T340-520q-56 0-108.5 17.5T147-440h386ZM40-360q0-109 91-174.5T340-600q118 0 209 65.5T640-360H40Zm0 160v-80h600v80H40ZM720-40v-80h56l56-560H450l-10-80h200v-160h80v160h200L854-98q-3 25-22 41.5T788-40h-68Zm0-80h56-56ZM80-40q-17 0-28.5-11.5T40-80v-40h600v40q0 17-11.5 28.5T600-40H80Zm260-400Z' />
+      <title>{title}</title>
+    </svg>,
+    <svg
+      xmlns='http://www.w3.org/2000/svg'
+      height={`${size}px`}
+      width={`${size}px`}
+      viewBox='0 -960 960 960'
+      fill='#e8eaed'
+      key={4}
+    >
+      <path d='M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-7-.5-14.5T799-507q-5 29-27 48t-52 19h-80q-33 0-56.5-23.5T560-520v-40H400v-80q0-33 23.5-56.5T480-720h40q0-23 12.5-40.5T563-789q-20-5-40.5-8t-42.5-3q-134 0-227 93t-93 227h200q66 0 113 47t47 113v40H400v110q20 5 39.5 7.5T480-160Z' />
+      <title>{title}</title>
+    </svg>,
+
+    <svg
+      xmlns='http://www.w3.org/2000/svg'
+      height={`${size}px`}
+      width={`${size}px`}
+      viewBox='0 -960 960 960'
+      fill='#e8eaed'
+      key={5}
+    >
+      <path d='m137-160-57-56 164-164q31-31 42.5-77.5T298-600q0-58 26-114t74-104q91-91 201-103t181 61q72 72 60 182T738-478q-48 48-104 74t-114 26q-97 0-142 11t-77 43L137-160Zm275-334q47 46 127 34t143-75q64-64 76.5-143.5T724-803q-48-48-125.5-36T456-763q-63 63-76.5 142.5T412-494ZM720-40q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113T720-40Zm0-80q33 0 56.5-23.5T800-200q0-33-23.5-56.5T720-280q-33 0-56.5 23.5T640-200q0 33 23.5 56.5T720-120Zm0-80Z' />
+      <title>{title}</title>
+    </svg>,
+    <svg
+      xmlns='http://www.w3.org/2000/svg'
+      height={`${size}px`}
+      width={`${size}px`}
+      viewBox='0 -960 960 960'
+      fill='#e8eaed'
+      key={6}
+    >
+      <path d='M480-80q-26 0-47-12.5T400-126q-33 0-56.5-23.5T320-206v-142q-59-39-94.5-103T190-590q0-121 84.5-205.5T480-880q121 0 205.5 84.5T770-590q0 77-35.5 140T640-348v142q0 33-23.5 56.5T560-126q-12 21-33 33.5T480-80Zm-80-126h160v-36H400v36Zm0-76h160v-38H400v38Zm-8-118h58v-108l-88-88 42-42 76 76 76-76 42 42-88 88v108h58q54-26 88-76.5T690-590q0-88-61-149t-149-61q-88 0-149 61t-61 149q0 63 34 113.5t88 76.5Zm88-162Zm0-38Z' />
+      <title>{title}</title>
+    </svg>,
+    <svg
+      xmlns='http://www.w3.org/2000/svg'
+      height={`${size}px`}
+      width={`${size}px`}
+      viewBox='0 -960 960 960'
+      fill='#e8eaed'
+      key={7}
+    >
+      <path d='M120-800v-80h320v80H120Zm120 280v-160H120v-80h320v80H320v160h-80ZM548-96l-56-56 312-312 56 56L548-96Zm32-224q-26 0-43-17t-17-43q0-26 17-43t43-17q26 0 43 17t17 43q0 26-17 43t-43 17Zm200 200q-26 0-43-17t-17-43q0-26 17-43t43-17q26 0 43 17t17 43q0 26-17 43t-43 17ZM620-520q-41 0-70.5-29.5T520-620q0-41 29.5-71.5T620-722q12 0 21.5 1.5T660-716v-124q0-17 11.5-28.5T700-880h140v80H720v180q0 41-29.5 70.5T620-520ZM220-80q-41 0-70.5-30.5T120-182q0-18 7.5-36.5T150-252l42-42-14-14q-15-15-22.5-32.5T148-378q0-41 29.5-70.5T248-478q41 0 70.5 29.5T348-378q0 20-6.5 37.5T320-308l-14 14 28 28 56-56 56 58-56 56 56 56-56 56-56-56-42 42q-15 15-33.5 22.5T220-80Zm28-270 14-14q3-3 4.5-6t1.5-8q0-9-6-14.5t-14-5.5q-8 0-14 5.5t-6 14.5q0 3 1.5 7t4.5 7l14 14Zm-30 190q3 0 8-1.5t8-4.5l44-42-28-28-44 42q-3 3-4.5 7t-1.5 9q0 8 5 13t13 5Z' />
+      <title>{title}</title>
+    </svg>,
+    <svg
+      xmlns='http://www.w3.org/2000/svg'
+      height={`${size}px`}
+      width={`${size}px`}
+      viewBox='0 -960 960 960'
+      fill='#e8eaed'
+      key={8}
+    >
+      <path d='M200-120v-680h360l16 80h224v400H520l-16-80H280v280h-80Zm300-440Zm86 160h134v-240H510l-16-80H280v240h290l16 80Z' />
+      <title>{title}</title>
+    </svg>,
+  ]
+  return categoriesSvgs[index]
 }
