@@ -29,6 +29,7 @@ header{
   font-size: 90px;
   line-height: 90px;
   color: white;
+  user-select: none;
 }
 
 :root{
@@ -70,6 +71,19 @@ main{
     filter: brightness(100%);
     scale: .95;
   }
+  view-timeline-name: --emoji;
+  view-timeline-axis: block;
+  animation-timeline: --emoji;
+  animation-name: show-emoji;
+  animation-range: entry 20% cover 35%;
+  animation-fill-mode: both;
+}
+
+@keyframes show-emoji{
+  from{
+    font-size: 10px;
+    filter: brightness(50%);
+  }
 }
 
 .copied-message{
@@ -88,10 +102,6 @@ main{
   animation: copied-msg-appear 2s ease both;
 }
 
-.loading-circle{
-  /*Style*/
-}
-
 @keyframes copied-msg-appear{
   0%{
     opacity: 0;
@@ -106,6 +116,53 @@ main{
     transform: translateY(100%);
   }
 }
+
+.loading-circle{
+  position: absolute;
+  right: calc(25vw + 60px);
+  top: 20vh;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: linear-gradient(
+    to right,
+    rgb(64, 64, 64), rgb(23, 23, 23)
+  );
+
+  &::after{
+    content: '';
+    background: #020202;
+    width: 75%;
+    height: 75%;
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+  }
+  animation: 
+    loading-spin 1s linear infinite,
+    loading-appear .18s ease both;
+}
+
+@keyframes loading-spin{
+  from{
+    transform: rotate(0);
+  }
+  to{
+    transform: rotate(360deg);
+  }
+}
+@keyframes loading-appear{
+  from{
+    scale: .9;
+  }
+  to{
+    scale: 1;
+  }
+}
+
 
 @media screen and (max-width: 1450px) {
   main{
