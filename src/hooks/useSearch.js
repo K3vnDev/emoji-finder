@@ -1,6 +1,8 @@
 import { useState } from "react"
+import { useEmojis } from "./useEmojis"
 
-export function useSearch ({ getEmojisBySearch, getEmojisByCategory, displayAllEmojis }) {
+export function useSearch () {
+  const { getEmojisBySearch, getEmojisByCategory, displayAllEmojis } = useEmojis()
   const [query, setQuery] = useState('')
   const [hasSearched, setHasSearched] = useState(false)
 

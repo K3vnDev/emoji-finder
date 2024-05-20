@@ -1,9 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { useEmojisData } from "../context/useEmojisData";
 const API_KEY = '9d949539a0495e3532b9b46c056e9707c75735a0'
 
 export function useEmojis () {
-  const [emojis, setEmojis] = useState([])
+  const { setEmojis } = useEmojisData()
 
   const categories = [
     'smileys-emotion', 'people-body', 'animals-nature', 'food-drink',
@@ -56,5 +57,5 @@ export function useEmojis () {
   
   useEffect(displayAllEmojis, [])
 
-  return { emojis, getEmojisBySearch, getEmojisByCategory, displayAllEmojis }
+  return { getEmojisBySearch, getEmojisByCategory, displayAllEmojis }
 }

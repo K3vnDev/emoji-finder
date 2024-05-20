@@ -4,11 +4,10 @@ import { SearchIcon, ClearSearchIcon } from './SearchIcons'
 import { useSearch } from '../hooks/useSearch'
 import './Filters.css'
 
-export function Filters({ getEmojisBySearch, getEmojisByCategory, displayAllEmojis }) {
+export function Filters() {
   const { 
     query, changeInput, searchEmojis, searchCategory, clearSearch, hasSearched 
-  } = useSearch({ getEmojisBySearch, getEmojisByCategory, displayAllEmojis })
-  // implement useContext to avoid prop drilling
+  } = useSearch()
 
   return (
     <>
