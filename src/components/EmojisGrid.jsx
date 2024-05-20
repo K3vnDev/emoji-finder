@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import './EmojisGrid.css'
 
 export function EmojisGrid ({ emojis, showCopiedMessage }) {
   if (emojis.length === 0) return (

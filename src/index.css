@@ -14,8 +14,7 @@ body{
 }
 
 header{
-  width: 25vw;
-  min-width: 500px;
+  width: 500px;
   height: 100vh;
   padding: 120px 80px;
   position: fixed;
@@ -32,60 +31,6 @@ header{
   user-select: none;
 }
 
-:root{
-  --emoji-cell-size: 100px;
-}
-
-main{
-  background: #121212;
-  padding: 50px;
-  right: 0;
-  position: absolute;
-  margin: 60px;
-  border-radius: 10px;
-
-  display: grid;
-  max-width: 60vw;
-  width: fit-content;
-  grid-template-columns: repeat(auto-fit, var(--emoji-cell-size));
-  gap: 10px;
-}
-
-.emoji-cell{
-  width: var(--emoji-cell-size);
-  height: var(--emoji-cell-size);
-  background: #191919;
-  font-size: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 5px;
-  cursor: default;
-  user-select: none;
-
-  &:hover{
-    filter: brightness(130%);
-  }
-  transition: all .2s ease;
-  &:active{
-    filter: brightness(100%);
-    scale: .95;
-  }
-  view-timeline-name: --emoji;
-  view-timeline-axis: block;
-  animation-timeline: --emoji;
-  animation-name: show-emoji;
-  animation-range: entry 20% cover 35%;
-  animation-fill-mode: both;
-}
-
-@keyframes show-emoji{
-  from{
-    font-size: 10px;
-    filter: brightness(50%);
-  }
-}
-
 .copied-message{
   color: white;
   font-family: system-ui;
@@ -98,22 +43,22 @@ main{
   font-weight: 500;
 
   bottom: 20px;
-  left: 80px;
+  left: 235px;
   animation: copied-msg-appear 2s ease both;
 }
 
 @keyframes copied-msg-appear{
   0%{
     opacity: 0;
-    transform: translateY(100%);
+    transform: translate(-50%, 100%);
   }
   15%, 90%{
     opacity: 1;
-    transform: translateY(-25%);
+    transform: translate(-50%, -25%);
   }
   100%{
     opacity: 0;
-    transform: translateY(100%);
+    transform: translate(-50%, 100%);
   }
 }
 
@@ -163,18 +108,33 @@ main{
   }
 }
 
+@media screen and (max-width: 1200px) {
+  .title{
+    font-size: 75px;
+    margin-top: 50px;
+    text-wrap: nowrap;
+  }
 
-@media screen and (max-width: 1450px) {
-  main{
-    max-width: 45vw;
+  header{
+    width: 80vw;
+    height: auto;
+    position: relative;
+    padding: 0;
+    gap: 40px;
   }
-  :root{
-    --emoji-cell-size: 90px;
-  }
-  .emoji-cell{
-    font-size: 40px;
+
+  .copied-message{
+    font-size: 20px;
+    bottom: 20px;
+    left: 50%;
   }
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 650px) {
+  .title{
+    font-size: 10vw;
+    line-height: 9vw;
+    text-align: center;
+  } 
 }
+  

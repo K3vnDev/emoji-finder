@@ -1,0 +1,92 @@
+:root{
+  --emoji-cell-size: 100px;
+}
+
+main{
+  background: #121212;
+  padding: 50px;
+  right: 0;
+  position: absolute;
+  margin: 60px;
+  border-radius: 10px;
+
+  display: grid;
+  max-width: calc(100vw - 600px);
+  width: fit-content;
+  grid-template-columns: repeat(auto-fit, var(--emoji-cell-size));
+  gap: 10px;
+}
+
+.emoji-cell{
+  width: var(--emoji-cell-size);
+  height: var(--emoji-cell-size);
+  background: #191919;
+  font-size: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  cursor: default;
+  user-select: none;
+
+  &:hover{
+    filter: brightness(130%);
+  }
+  transition: all .2s ease;
+  &:active{
+    filter: brightness(100%);
+    scale: .95;
+  }
+  view-timeline-name: --emoji;
+  view-timeline-axis: block;
+  animation-timeline: --emoji;
+  animation-name: show-emoji;
+  animation-range: entry 20% cover 35%;
+  animation-fill-mode: both;
+}
+
+@keyframes show-emoji{
+  from{
+    font-size: 10px;
+    filter: brightness(70%);
+  }
+}
+
+
+@media screen and (max-width: 1200px) {
+  main{
+    padding: 35px;
+    position: relative;
+    max-width: 90vw;
+  }
+  
+  #root{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  :root{
+    --emoji-cell-size: 80px;
+  }
+  main{
+    padding: 27px;
+    max-width: 92vw;
+    gap: 9px;
+  }
+  .emoji-cell{
+    font-size: 40px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  :root{
+    --emoji-cell-size: 70px;
+  }
+  .emoji-cell{
+    font-size: 35px;
+  }
+}
+
