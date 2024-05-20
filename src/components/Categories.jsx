@@ -45,7 +45,7 @@ export function Categories({ searchCategory }) {
       categories.map((category, index) => (
         <Category
         key={index} name={category.name} index={index}
-        img_url={`public/categoriesIcons/${category.file}`}
+        img_url={`src/assets/categoriesIcons/${category.file}`}
         searchCategory={searchCategory}
         />
       ))
