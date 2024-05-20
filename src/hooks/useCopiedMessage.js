@@ -1,13 +1,13 @@
 import { useState } from "react"
 
 export function useCopiedMessage() {
-  const [copiedMessage, setCopiedMessage] = useState(false)
+  const [copiedMessage, setCopiedMessage] = useState('')
 
-  const showCopiedMessage = () => {
-    if (!copiedMessage){
-      setCopiedMessage(true)
+  const showCopiedMessage = (emoji) => {
+    if (copiedMessage === ''){
+      setCopiedMessage(`${emoji} Copied to Clipboard!`)
       setTimeout(() => {
-        setCopiedMessage(false)
+        setCopiedMessage('')
       }, 2000)
     }
   }

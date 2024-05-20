@@ -40,7 +40,7 @@ main{
   padding: 50px;
   right: 0;
   position: absolute;
-  margin: 100px 60px;
+  margin: 60px;
   border-radius: 10px;
 
   display: grid;
@@ -77,13 +77,14 @@ main{
   font-family: system-ui;
   padding: 10px 22px;
   border-radius: 5px;
-  background: #161692;
+  background: #1e0a48;
+  box-shadow: 0 0 5px #1e0a48;
   position: fixed;
   font-size: 24px;
   font-weight: 500;
 
-  bottom: 0;
-  left: 50%;
+  bottom: 20px;
+  left: 80px;
   animation: copied-msg-appear 2s ease both;
 }
 
@@ -94,15 +95,15 @@ main{
 @keyframes copied-msg-appear{
   0%{
     opacity: 0;
-    transform: translate(-50%, 100%);
+    transform: translateY(100%);
   }
   15%, 90%{
     opacity: 1;
-    transform: translate(-50%, -25%);
+    transform: translateY(-25%);
   }
   100%{
     opacity: 0;
-    transform: translate(-50%, 100%);
+    transform: translateY(100%);
   }
 }
 

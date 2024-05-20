@@ -25,9 +25,9 @@ function App() {
         showCopiedMessage={showCopiedMessage}
       />
       {
-        copiedMessage &&
+        copiedMessage !== '' &&
         <div className='copied-message'>
-          Copied to Clipboard!
+          {copiedMessage}
         </div>
       }
     </>
