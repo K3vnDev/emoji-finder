@@ -41,6 +41,7 @@ header{
   position: fixed;
   font-size: 24px;
   font-weight: 500;
+  text-wrap: nowrap;
 
   bottom: 20px;
   left: 235px;
@@ -114,7 +115,6 @@ header{
     margin-top: 50px;
     text-wrap: nowrap;
   }
-
   header{
     width: 80vw;
     height: auto;
@@ -122,18 +122,22 @@ header{
     padding: 0;
     gap: 40px;
   }
-
   .copied-message{
     font-size: 20px;
     bottom: 20px;
     left: 50%;
   }
+  .loading-circle{
+    right: 50%;
+    top: 10vh;
+    translate: 50%;
+  }
 }
 
 @media screen and (max-width: 650px) {
   .title{
-    font-size: 10vw;
-    line-height: 9vw;
+    font-size: 11vw;
+    line-height: calc(10vw - 25px);
     text-align: center;
   } 
 }

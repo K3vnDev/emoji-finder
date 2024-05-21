@@ -9,7 +9,7 @@ export function Categories({ searchCategory }) {
 
   return (
     <section className='categories-wrapper'>
-      {categories.map((category, index) => (
+      {categories.map((_, index) => (
         <Category
           key={index}
           index={index}
@@ -27,7 +27,7 @@ function Category({ searchCategory, title, index }) {
   }
   return (
     <div className='category' onClick={handleClick}>
-      <CategoryIcon size={50} title={title} index={index} />
+      <CategoryIcon size={55} title={title} index={index} />
     </div>
   )
 }

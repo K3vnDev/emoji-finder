@@ -55,9 +55,10 @@ main{
 
 @media screen and (max-width: 1200px) {
   main{
+    margin-top: 70px;
     padding: 35px;
     position: relative;
-    max-width: 90vw;
+    max-width: 95vw;
   }
   
   #root{
@@ -67,13 +68,18 @@ main{
   }
 }
 
+@media screen and (max-width: 950px){
+  main{
+    margin-top: 50px;
+  }
+}
+
 @media screen and (max-width: 700px) {
   :root{
-    --emoji-cell-size: 80px;
+    --emoji-cell-size: 75px;
   }
   main{
-    padding: 27px;
-    max-width: 92vw;
+    padding: 25px;
     gap: 9px;
   }
   .emoji-cell{
@@ -83,7 +89,11 @@ main{
 
 @media screen and (max-width: 500px) {
   :root{
-    --emoji-cell-size: 70px;
+    --emoji-cell-size: 65px;
+  }
+  main{
+    padding: 20px;
+    gap: 8px;
   }
   .emoji-cell{
     font-size: 35px;
