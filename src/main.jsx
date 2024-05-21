@@ -1,10 +1,10 @@
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
-import { EmojisDataProvider } from './context/emojisData.jsx'
+import { DataProvider } from './context/data.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <EmojisDataProvider>
+  <DataProvider>
     <App />
-  </EmojisDataProvider>,
+  </DataProvider>,
 )

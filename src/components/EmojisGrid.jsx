@@ -1,12 +1,27 @@
 /* eslint-disable react/prop-types */
+import { useData } from '../context/useData'
 import './EmojisGrid.css'
 
-export function EmojisGrid ({ emojis, showCopiedMessage }) {
-  if (emojis.length === 0) return (
-    <main style={{background: 'transparent'}}>
-      <div className="loading-circle" />
-    </main>
-  )
+export function EmojisGrid () {
+  const { emojis, errorMessage } = useData()
+  
+  if (errorMessage !== ''){
+    return (
+      <main style={{background: 'transparent'}}>
+        <div className="error-message">
+          {errorMessage}
+        </div>
+      </main>
+    )
+  }
+
+  if (emojis.length === 0){
+    return (
+      <main style={{background: 'transparent'}}>
+        <div className="loading-circle" />
+      </main>
+    )
+  }
 
   return (
     <main>
@@ -14,7 +29,6 @@ export function EmojisGrid ({ emojis, showCopiedMessage }) {
         emojis.map((emoji, index) => (
           <EmojiCell
             key={index}
-            showCopiedMessage={showCopiedMessage}
           >
             {emoji}
           </EmojiCell>
@@ -24,7 +38,8 @@ export function EmojisGrid ({ emojis, showCopiedMessage }) {
   )
 }
 
-export function EmojiCell ({ children, showCopiedMessage }) {
+export function EmojiCell ({ children }) {
+  const { showCopiedMessage } = useData()
   
   const handleClick = () => {
     navigator.clipboard.writeText(children)

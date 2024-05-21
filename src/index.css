@@ -24,7 +24,7 @@ header{
 }
 
 .title{
-  font-family: 'Poppins';
+  font-family: 'Poppins', system-ui;
   font-size: 90px;
   line-height: 90px;
   color: white;
@@ -109,6 +109,17 @@ header{
   }
 }
 
+.error-message{
+  position: absolute;
+  right: calc(25vw + 50px);
+  top: 20vh;
+  font-size: 28px;
+  color: #922b2b;
+  font-weight: 500;
+  font-family: system-ui;
+  width: max-content;
+}
+
 @media screen and (max-width: 1200px) {
   .title{
     font-size: 75px;
@@ -126,6 +137,11 @@ header{
     font-size: 20px;
     bottom: 20px;
     left: 50%;
+  }
+  .error-message{
+    right: 50%;
+    top: 10vh;
+    translate: 50%;
   }
   .loading-circle{
     right: 50%;

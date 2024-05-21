@@ -27,7 +27,7 @@
   
   &::placeholder{
     color: rgb(255 255 255 / .5);
-    font-family: Poppins;
+    font-family: Poppins, system-ui;
   }
   &:hover{
     border: solid 1px var(--higlighted-border);
@@ -120,6 +120,12 @@
   .category svg{
     scale: .85;
   }
+  .category:hover svg{
+    scale: .9;
+  }
+  .category:active svg{
+    scale: .8;
+  }
 }
 
 @media screen and (max-width: 950px){
@@ -139,5 +145,11 @@
   }
   .category svg{
     scale: .7;
+  }
+  .category:hover svg{
+    scale: .75;
+  }
+  .category:active svg{
+    scale: .65;
   }
 }
