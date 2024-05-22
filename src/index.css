@@ -29,6 +29,7 @@ header{
   line-height: 90px;
   color: white;
   user-select: none;
+  text-shadow: 0 0 14px black;
 }
 
 .copied-message{
