@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useAnimatedEmojis } from '../../hooks/useAnimatedEmojis'
 import './AnimatedBackground.css'
 
@@ -13,11 +14,7 @@ export function AnimatedBackground () {
 
           return (
             <AnimatedEmoji 
-            emoji={animEmoji.emoji}
-            time={animEmoji.time}
-            pos={animEmoji.pos}
-            size={animEmoji.size}
-            rotation={animEmoji.rotation}
+            animEmoji={animEmoji}
             key={index}
             />
           )
@@ -27,13 +24,19 @@ export function AnimatedBackground () {
   )
 }
 
-// eslint-disable-next-line react/prop-types
-function AnimatedEmoji ({ emoji, time, pos, size, rotation }) {
-  const style = {
-    animation: `emoji-float ${time}s ease-out both`,
-    top: `${pos}vh`,
-    fontSize: `${size}px`,
-    rotate: `${rotation}deg`
-  }
-  return <span style={style} className='animated-emoji'>{emoji}</span>
+function AnimatedEmoji ({ animEmoji }) {
+  const { emoji, time, pos, size, rotation } = animEmoji
+
+  return (
+    <span 
+    className='animated-emoji'
+      style={{
+        animation: `emoji-float ${time}s ease-out both`,
+        top: `${pos}vh`,
+        fontSize: `${size}px`,
+        rotate: `${rotation}deg`
+      }} 
+    >{emoji}
+    </span>
+  ) 
 }
