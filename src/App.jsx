@@ -1,6 +1,7 @@
 import { EmojisGrid } from './components/emojisGrid/EmojisGrid.jsx'
 import { Filters } from './components/filters/Filters.jsx'
 import { CopiedMessage } from './components/CopiedMessage.jsx'
+import { AnimatedBackground } from './components/animatedBackground/AnimatedBackground.jsx'
 
 function App() {
 
@@ -13,7 +14,9 @@ function App() {
       <EmojisGrid />
 
       <CopiedMessage />
+      <AnimatedBackground />
     </>
   )
 }
 export default App
+

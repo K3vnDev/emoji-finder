@@ -44,6 +44,7 @@ export function EmojiCell ({ children }) {
   const handleClick = () => {
     navigator.clipboard.writeText(children)
     showCopiedMessage(children)
+    console.log(children)
   }
 
   return (

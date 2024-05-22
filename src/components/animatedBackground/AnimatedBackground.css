@@ -1,0 +1,21 @@
+.animated-background{
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.animated-emoji{
+  position: fixed;
+  z-index: -10;
+}
+
+@keyframes emoji-float{
+  from{
+    transform: translateX(-200px);
+    opacity: .65;
+  }
+  to{
+    transform: translateX(500px);
+    opacity: 0;
+  }
+}
