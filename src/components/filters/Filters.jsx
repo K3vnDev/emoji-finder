@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
-import { Categories } from './Categories'
-import { SearchIcon, ClearSearchIcon } from './SearchIcons'
-import { useSearch } from '../hooks/useSearch'
+import { Categories } from '../Categories'
+import { SearchIcon, ClearSearchIcon } from '../SearchIcons'
+import { useSearch } from '../../hooks/useSearch'
 import './Filters.css'
 
 export function Filters() {

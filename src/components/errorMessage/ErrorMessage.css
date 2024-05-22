@@ -1,0 +1,79 @@
+:root{
+  --red: #922b2b;
+}
+
+.error-message-wrapper{
+  position: absolute;
+  right: calc(25vw + 50px);
+  width: max-content;
+  top: 20vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 17px;
+
+  background: #290909;
+  padding: 10px 16px;
+  border-radius: 5px;
+  border: 2px solid var(--red);
+  cursor: default;
+  animation: appear .2s ease-out both;
+}
+
+.error-message-wrapper span{
+  font-size: 28px;
+  color: var(--red);
+  font-weight: 500;
+  font-family: system-ui;
+  width: max-content;
+}
+
+.error-message-wrapper button{
+  width: 27px;
+  height: 27px;
+  border-radius: 2px;
+  border: none;
+  cursor: pointer;
+  background: var(--red);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 3px var(--red);
+
+  transition: all .3s ease;
+  &:hover{
+    scale: 1.1;
+    box-shadow: 0 0 7px var(--red);
+  }
+  &:active{
+    scale: .9;
+    box-shadow: 0 0 0px var(--red);
+  }
+}
+
+.error-message-wrapper.hidden{
+  animation: disappear .3s ease-out both;
+}
+
+@keyframes disappear{
+  to{
+    scale: .9;
+    opacity: 0;
+    transform: translateY(50px);
+  }
+}
+
+@keyframes appear{
+  from{
+    scale: .9;
+    opacity: 0;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .error-message-wrapper{
+    right: 50%;
+    top: 10vh;
+    translate: 50%;
+  }
+}

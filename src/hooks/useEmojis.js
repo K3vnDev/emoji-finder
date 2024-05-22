@@ -20,6 +20,7 @@ export function useEmojis() {
   ]
 
   const updateEmojis = async (url) => {
+    setErrorMessage('')
     const res = await fetch(url)
     const data = await res.json()
     
@@ -28,7 +29,6 @@ export function useEmojis() {
       return
     }
     
-    setErrorMessage('')
     data.forEach((emoji) => {
       setEmojis((e) => {
         const newEmojis = [...e]

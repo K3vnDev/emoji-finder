@@ -1,5 +1,5 @@
-import { EmojisGrid } from './components/EmojisGrid.jsx'
-import { Filters } from './components/Filters.jsx'
+import { EmojisGrid } from './components/emojisGrid/EmojisGrid.jsx'
+import { Filters } from './components/filters/Filters.jsx'
 import { CopiedMessage } from './components/CopiedMessage.jsx'
 
 function App() {

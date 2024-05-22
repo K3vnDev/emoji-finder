@@ -1,6 +1,8 @@
 /* eslint-disable react/prop-types */
-import { useData } from '../context/useData'
+
+import { useData } from '../../context/useData.js'
 import './EmojisGrid.css'
+import { ErrorMessage } from '../errorMessage/ErrorMessage.jsx'
 
 export function EmojisGrid () {
   const { emojis, errorMessage } = useData()
@@ -8,9 +10,7 @@ export function EmojisGrid () {
   if (errorMessage !== ''){
     return (
       <main style={{background: 'transparent'}}>
-        <div className="error-message">
-          {errorMessage}
-        </div>
+        <ErrorMessage msg={errorMessage} />
       </main>
     )
   }
